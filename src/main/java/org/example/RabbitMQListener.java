@@ -15,7 +15,7 @@ public class RabbitMQListener {
 
     @RabbitListener(queues = "${job.queue.name}")
     public void receive(Job job) {
-        System.out.println("📥 Received new job: " + job.getTitle() + " in " + job.getCity());
+        System.out.println("Received new job: " + job.getTitle() + " in " + job.getCity());
         alertService.checkAndNotify(job);
     }
 }
