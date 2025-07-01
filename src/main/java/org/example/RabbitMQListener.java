@@ -13,7 +13,7 @@ public class RabbitMQListener {
         this.alertService = alertService;
     }
 
-    @RabbitListener(queues = "${job.queue.name}")
+    @RabbitListener(queues = "${job.queue.name}", ackMode = "AUTO")
     public void receive(Job job) {
         System.out.println("Received new job: " + job.getTitle() + " in " + job.getCity());
         alertService.checkAndNotify(job);
