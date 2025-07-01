@@ -15,7 +15,12 @@ public class RabbitMQListener {
 
     @RabbitListener(queues = "${job.queue.name}", ackMode = "AUTO")
     public void receive(Job job) {
+        if (job == null || job.getTitle() == null || job.getCity() == null) {
+            System.out.println("Skipping malformed job message.");
+            return;
+        }
         System.out.println("Received new job: " + job.getTitle() + " in " + job.getCity());
         alertService.checkAndNotify(job);
     }
+
 }
