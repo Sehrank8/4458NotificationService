@@ -28,6 +28,7 @@ public class AlertService {
         JobAlert jobAlert = new JobAlert();
         jobAlert.setCity(job.getCity());
         jobAlert.setTitle(job.getTitle());
+        jobAlert.setUserId("1");
         addAlert(jobAlert);
         List<JobAlert> alerts = alertRepo.findByCityAndTitleIgnoreCase(job.getCity(), job.getTitle());
         for (JobAlert alert : alerts) {
