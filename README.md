@@ -2,6 +2,8 @@
 
 This microservice is responsible for managing job alert notifications within the SE4458 Job Search Web Application ecosystem. It listens to new job postings via RabbitMQ and sends relevant alerts to users who have configured matching Job Alerts.
 
+[THE IMPORTANT DETAILS ARE HERE](https://github.com/Sehrank8/4458ApiGateway)
+
 ---
 
 ## 🚀 Overview
