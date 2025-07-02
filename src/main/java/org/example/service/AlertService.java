@@ -25,8 +25,13 @@ public class AlertService {
     }
 
     public void checkAndNotify(Job job) {
+        JobAlert jobAlert = new JobAlert();
+        jobAlert.setCity(job.getCity());
+        jobAlert.setTitle(job.getTitle());
+        addAlert(jobAlert);
         List<JobAlert> alerts = alertRepo.findByCityAndTitleIgnoreCase(job.getCity(), job.getTitle());
         for (JobAlert alert : alerts) {
+
             System.out.println("Notify user " + alert.getUserId() + ": New job match → " + job.getTitle());
         }
     }
